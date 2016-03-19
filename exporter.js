@@ -18,9 +18,9 @@
         var playlist = document.querySelectorAll('.song-table tr.song-row');
         for (var i = 0; i < playlist.length; i++) {
             var l = playlist[i],
-                title = l.querySelectorAll('td[data-col="title"] .content')[0].textContent,
-                artist = l.querySelectorAll('td[data-col="artist"] .content')[0].textContent,
-                album = l.querySelectorAll('td[data-col="album"] .content')[0].textContent,
+                title = l.querySelectorAll('td[data-col="title"] .column-content')[0].textContent,
+                artist = l.querySelectorAll('td[data-col="artist"] .column-content')[0].textContent,
+                album = l.querySelectorAll('td[data-col="album"] .column-content')[0].textContent,
                 duration = l.querySelectorAll('td[data-col="duration"] span')[0].textContent,
                 lineFormat;
             if (self.format == 'ivy') {
@@ -131,11 +131,11 @@
 
     if (plstype === 'prompt') {
         self.dialog = document.createElement('dialog');
-        self.dialog.innerHTML = '<form onsubmit="return self.begin()"><strong>Select Format:</strong><select id="playlist-format">'
+        self.dialog.innerHTML = '<form onsubmit="return self.begin();"><strong>Select Format:</strong><select id="playlist-format">'
             +'<option value="m3u">M3U (Generic, soundiiz.com, etc.)</option>'
             +'<option value="csv">CSV (Generic CSV)</option>'
             +'<option value="ivy">IVY (ivyishere.org)</option>'
-            +'</select> <input type="submit" value="Begin"/></dialog>';
+            +'</select> <input type="submit" value="Begin"/></form>';
         document.body.appendChild(self.dialog);
         self.dialog.showModal();
     } else {
