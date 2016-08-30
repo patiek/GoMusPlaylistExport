@@ -54,8 +54,6 @@
             if (!playlistEntries.hasOwnProperty(lineFormat)) {
                 self.totalSongs++;
                 self.totalWaitSinceChange = 0;
-				console.log(lineFormat)
-				console.log(title)
                 playlistEntries[lineFormat] = {
                     artist: artist,
                     title: title,
@@ -145,4 +143,3 @@
     }
 
 })(-1,'prompt');
-
