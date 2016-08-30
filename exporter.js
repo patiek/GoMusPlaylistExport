@@ -24,7 +24,7 @@
                 duration = l.querySelectorAll('td[data-col="duration"] span')[0].textContent,
                 lineFormat;
             if (self.format == 'ivy') {
-                lineFormat = artist.replace('-', ' ').trim() + ' - ' + title.replace(/(.+?)\s*[\(\[].+[\)\]]\s*$/, '$1').trim();
+                lineFormat = artist.replace('-', ' ').trim() + ' - ' + title.trim();
             } else if (self.format == 'm3u') {
                 var durationParts = duration.split(':'),
                     totalSeconds;
