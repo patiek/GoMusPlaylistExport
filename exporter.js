@@ -40,13 +40,13 @@
                 lineFormat = '#EXTINF:' + totalSeconds + ','
                     + artist.replace('-', ' ').trim()
                     + ' - '
-                    + title.replace(/(.+?)\s*[\(\[].+[\)\]]\s*$/, '$1').trim()
+                    + title.trim()
                     + "\n"
                     + album.trim()
                     + '/'
                     + artist.replace('-', ' ').trim()
                     + ' - '
-                    + title.replace(/(.+?)\s*[\(\[].+[\)\]]\s*$/, '$1').trim()
+                    + title.trim()
                     + '.mp3'
             } else {
                 lineFormat = quoteEscape(artist)+','+quoteEscape(title)+','+quoteEscape(album)+','+quoteEscape(duration);
@@ -54,6 +54,8 @@
             if (!playlistEntries.hasOwnProperty(lineFormat)) {
                 self.totalSongs++;
                 self.totalWaitSinceChange = 0;
+				console.log(lineFormat)
+				console.log(title)
                 playlistEntries[lineFormat] = {
                     artist: artist,
                     title: title,
@@ -143,3 +145,4 @@
     }
 
 })(-1,'prompt');
+
