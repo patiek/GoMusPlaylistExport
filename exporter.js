@@ -24,7 +24,7 @@
                 duration = l.querySelectorAll('td[data-col="duration"] span')[0].textContent,
                 lineFormat;
             if (self.format == 'ivy') {
-                lineFormat = artist.replace('-', ' ').trim() + ' - ' + title.replace(/(.+?)\s*[\(\[].+[\)\]]\s*$/, '$1').trim();
+                lineFormat = artist.replace('-', ' ').trim() + ' - ' + title.trim();
             } else if (self.format == 'm3u') {
                 var durationParts = duration.split(':'),
                     totalSeconds;
@@ -40,13 +40,13 @@
                 lineFormat = '#EXTINF:' + totalSeconds + ','
                     + artist.replace('-', ' ').trim()
                     + ' - '
-                    + title.replace(/(.+?)\s*[\(\[].+[\)\]]\s*$/, '$1').trim()
+                    + title.trim()
                     + "\n"
                     + album.trim()
                     + '/'
                     + artist.replace('-', ' ').trim()
                     + ' - '
-                    + title.replace(/(.+?)\s*[\(\[].+[\)\]]\s*$/, '$1').trim()
+                    + title.trim()
                     + '.mp3'
             } else {
                 lineFormat = quoteEscape(artist)+','+quoteEscape(title)+','+quoteEscape(album)+','+quoteEscape(duration);
