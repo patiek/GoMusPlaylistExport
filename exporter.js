@@ -111,9 +111,11 @@
     };
 
     this.begin = function() {
-        self.dialog.close();
-        var playlistSelect = document.getElementById('playlist-format');
-        self.format = playlistSelect.options[playlistSelect.selectedIndex].value;
+        if (typeof self.dialog !== 'undefined') {
+            var playlistSelect = document.getElementById('playlist-format');
+            self.format = playlistSelect.options[playlistSelect.selectedIndex].value;
+            self.dialog.close();
+        }
         self.scrape();
         self.scrollAll();
         return false;
@@ -131,12 +133,18 @@
 
     if (plstype === 'prompt') {
         self.dialog = document.createElement('dialog');
-        self.dialog.innerHTML = '<form onsubmit="return self.begin();"><strong>Select Format:</strong><select id="playlist-format">'
+        self.dialog.innerHTML = '<form id="playlist-form"><strong>Select Format:</strong><select id="playlist-format">'
             +'<option value="m3u">M3U (Generic, soundiiz.com, etc.)</option>'
             +'<option value="csv">CSV (Generic CSV)</option>'
             +'<option value="ivy">IVY (ivyishere.org)</option>'
             +'</select> <input type="submit" value="Begin"/></form>';
         document.body.appendChild(self.dialog);
+
+        document.getElementById('playlist-form').addEventListener('submit', function(evt){
+            evt.preventDefault();
+            self.begin();
+        });
+
         self.dialog.showModal();
     } else {
         self.begin();
