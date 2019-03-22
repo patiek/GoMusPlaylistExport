@@ -9,7 +9,7 @@ This code allows you to export your Google Music playlist into an M3U playlist f
 1. Open [Google Music](https://play.google.com/music/)
 2. Navigate to the playlist you want to export in google music and ensure you have not scrolled down the page.
 3. Open your browser's inspector window (in Chrome, right click > inspect element).
-4. Copy & paste the javascript from exporter.js into the console tab of your inspector window and press enter.
+4. Copy & paste the javascript from [exporter.js](https://raw.githubusercontent.com/patiek/GoMusPlaylistExport/master/exporter.js) into the console tab of your inspector window and press enter.
 5. View the page, a dialog prompt will ask you what type of playlist you would like to generate.
 6. Scroll down the page, the exporter will scrape the playlist as you scroll, indicating number of songs scraped in lower right of browser.
 7. After no new songs have been scraped for 10 seconds, the exporter will automatically initialize a file download of your playlist file.
